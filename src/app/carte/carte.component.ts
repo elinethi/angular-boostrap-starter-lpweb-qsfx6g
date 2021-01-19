@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { PokemonService } from "../service/pokemon.service";
+import { Pokemon } from "../interfaces/pokemon";
 
 @Component({
   selector: "app-carte",
@@ -6,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./carte.component.css"]
 })
 export class CarteComponent implements OnInit {
-  pokemons = [
+  /*pokemons = [
     {
       _id: "5fb64130183ebe3f02f31297",
       poke_id: 150,
@@ -42,4 +44,13 @@ export class CarteComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+  */
+
+  data: Pokemon;
+  constructor(private pokemonService: PokemonService) {}
+
+  async ngOnInit() {
+    this.data = await this.pokemonService.pokemon("1");
+    console.log(this.data);
+  }
 }
