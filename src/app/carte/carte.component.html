@@ -1,0 +1,12 @@
+<!--*ngFor="let pokemon in pokemons"-->
+<ng-container *ngFor="let pokemon of pokemons">
+	<div class="carte">
+		<h3>{{pokemon.name}}</h3>
+		<h3>{{pokemon.type}}</h3>
+		<img [src]="pokemon.image" />
+		<h4>PV : {{pokemon.stats.hp}}</h4>
+		<h4>Défense : {{pokemon.stats.defense}}</h4>
+		<h4>Attaque : {{pokemon.stats.attack}}</h4>
+		<h4>Vitesse : {{pokemon.stats.speed}}</h4>
+	</div>
+</ng-container>
